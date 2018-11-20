@@ -56,10 +56,11 @@ class Jugador extends Ficha {
 
 class Tablero extends Ficha {
 
-    public $ficha1;
+    public  $ficha1;
     public $ficha2;
     public $turno = 1; //es uno o 2 
     public $array= array();
+    
     public function __construct(Ficha $ficha1, Ficha $ficha2) { //inicio el turno
         $this->ficha1 = $ficha1;
         $this->ficha2 = $ficha2;
@@ -97,7 +98,7 @@ class Tablero extends Ficha {
             echo '<tr>';
             for ($e = 0; $e <3; $e++) {
                 echo '<td>';
-                echo '<a href="usabilidad.php?fila=' . $i . '&columna=' . $e . '">'. $this->array[$i][$e].'</a>';
+                echo '<a href="usabilidad.php?op=1&fila=' . $i . '&columna=' . $e . '">'. $this->array[$i][$e].'</a>';
                 echo '</td>';
             }
             echo '</tr>';
