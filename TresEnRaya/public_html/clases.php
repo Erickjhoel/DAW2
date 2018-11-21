@@ -119,13 +119,16 @@ class Tablero extends Ficha {
 
     public function verificar(Ficha $ficha) {
         $etiqueta = $ficha->etiquetaImg();
-        echo $etiqueta ;
+        echo $etiqueta;
 //comprueba si ha ganado alguien -> devolverá true o false
         //comprueba fila 1
+        echo $this->array[0][0];
+        echo $this->array[0][1];
+        echo $this->array[0][2];
         if ($this->array[0][0] == $etiqueta) {
             if ($this->array[0][1] == $etiqueta) {
                 if ($this->array[0][2] == $etiqueta) {
-                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                    echo "Ganador";
                 }
             }
         }
@@ -133,7 +136,7 @@ class Tablero extends Ficha {
         if ($this->array[1][0] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[1][2] == $etiqueta) {
-                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                    echo "Ganador";
                 }
             }
         }
@@ -141,10 +144,10 @@ class Tablero extends Ficha {
         if ($this->array[2][0] == $etiqueta) {
             if ($this->array[2][1] == $etiqueta) {
                 if ($this->array[2][2] == $etiqueta) {
-                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                    echo "Ganador";
                 }
             }
-        } 
+        }
     }
 
 }

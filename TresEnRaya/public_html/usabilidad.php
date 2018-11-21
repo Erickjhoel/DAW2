@@ -17,8 +17,9 @@ if ($op == 1) {
     @$columna = $_REQUEST["columna"];
     $_SESSION["tablero"]->ponerFicha($_SESSION["tablero"]->getFicha(), $fila, $columna);
     $_SESSION["tablero"]->mostrar();
-    $_SESSION["tablero"]->cambioTurno();
     $_SESSION["tablero"]->verificar($_SESSION["tablero"]->getFicha());
+    $_SESSION["tablero"]->cambioTurno();
+    
    
 } else {
     $nom1 = test_imput($_REQUEST['nom1']);
