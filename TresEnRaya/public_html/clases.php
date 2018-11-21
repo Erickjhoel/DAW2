@@ -19,7 +19,7 @@ class Ficha {
     }
 
     public function etiquetaImg() {//devuelve la imagen con las dimensiones por defecto
-        $etiqueta = '<img src="' . $this->imagen . '" border="1" alt="" width="400" height="300">';
+        $etiqueta = '<img src="' . $this->imagen . '" border="1" alt="" width="100" height="100">';
         return $etiqueta;
     }
 
@@ -56,11 +56,11 @@ class Jugador extends Ficha {
 
 class Tablero extends Ficha {
 
-    public  $ficha1;
+    public $ficha1;
     public $ficha2;
     public $turno = 1; //es uno o 2 
-    public $array= array();
-    
+    public $array = array();
+
     public function __construct(Ficha $ficha1, Ficha $ficha2) { //inicio el turno
         $this->ficha1 = $ficha1;
         $this->ficha2 = $ficha2;
@@ -76,16 +76,16 @@ class Tablero extends Ficha {
 
     public function cambioTurno() {//cambia a la otra ficha
         if ($this->turno == 1) {
-            $this->turno == 2;
+            $this->turno = 2;
         } elseif ($this->turno == 2) {
-            $this->turno == 1;
+            $this->turno = 1;
         }
     }
 
     public function iniciar() {//pone el tablero a cero 
-       for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             for ($e = 0; $e < 3; $e++) {
-                $this->array[$i][$e]="0";
+                $this->array[$i][$e] = "0";
             }
         }
     }
@@ -94,32 +94,57 @@ class Tablero extends Ficha {
         //colocar el link si no la ficha
         //muestra el tablero con las fichas puestas hasta ahora o vacío si no hay ninguna
         echo '<table border="2">';
-        for ($i = 0; $i <3; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             echo '<tr>';
-            for ($e = 0; $e <3; $e++) {
-                echo '<td>';
-                echo '<a href="usabilidad.php?op=1&fila=' . $i . '&columna=' . $e . '">'. $this->array[$i][$e].'</a>';
-                echo '</td>';
+            for ($e = 0; $e < 3; $e++) {
+                if ($this->array[$i][$e] == "0") {
+                    echo '<td>' . '<a href="usabilidad.php?op=1&fila=' . $i . '&columna=' . $e . '">' . $this->array[$i][$e] . '</a>' . '</td>';
+                } else {
+                    echo '<td>' . $this->array[$i][$e] . '</td>';
+                }
             }
             echo '</tr>';
         }
         echo '</table>';
     }
 
-    public function ponerFicha(Ficha $ficha,$fila, $columna) {
-        if ($this->array[$fila][$columna] == 0) {
-            $this->array[$fila][$columna] = $ficha;
+    public function ponerFicha(Ficha $ficha, $fila, $columna) {
+        //aunque se cambie en el array hay que modificarlo comprobarlo en la tabla
+        if ($this->array[$fila][$columna] == "0") {
+            $this->array[$fila][$columna] = $ficha->etiquetaImg();
         } else {
             echo "La celda ya estaba ocupada";
         }
     }
 
-    public function verificar($puntos1, $puntos2) {//comprueba si ha ganado alguien -> devolverá true o false
-        if ($puntos1 == 3) {
-            header("http://localhost/php/TresEnRaya/ganador.php");
-        } elseif ($puntos2 == 3) {
-            header("http://localhost/php/TresEnRaya/ganador.php");
+    public function verificar(Ficha $ficha) {
+        $etiqueta = $ficha->etiquetaImg();
+        echo $etiqueta ;
+//comprueba si ha ganado alguien -> devolverá true o false
+        //comprueba fila 1
+        if ($this->array[0][0] == $etiqueta) {
+            if ($this->array[0][1] == $etiqueta) {
+                if ($this->array[0][2] == $etiqueta) {
+                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                }
+            }
         }
+        //COMPRUEBA FILA 2
+        if ($this->array[1][0] == $etiqueta) {
+            if ($this->array[1][1] == $etiqueta) {
+                if ($this->array[1][2] == $etiqueta) {
+                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                }
+            }
+        }
+        //COMPRUEBA FILA 3
+        if ($this->array[2][0] == $etiqueta) {
+            if ($this->array[2][1] == $etiqueta) {
+                if ($this->array[2][2] == $etiqueta) {
+                    header("http://localhost/php/servidor/TresEnRaya/public_html/ganador.php");
+                }
+            }
+        } 
     }
 
 }

@@ -27,10 +27,5 @@ if (!isset($_POST['aceptar'])) {
  
 }else{
      session_start();
-    $nom1 = test_imput($_REQUEST['nom1']);
-    print ("El nombre del jugador 1 es: $nom1 <br>");
-    $_SESSION["jug1"]=$nom1;
-    $nom2 = test_imput($_REQUEST['nom2']);
-    print ("El nombre del jugador 2 es: $nom2 <br>");
-    $_SESSION["jug2"]=$nom2;
+    
  } ?>

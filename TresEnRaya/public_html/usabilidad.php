@@ -11,20 +11,28 @@ function test_imput($data) {
 }
 
 @$op = $_REQUEST["op"];
+
 if ($op == 1) {
     @$fila = $_REQUEST["fila"];
     @$columna = $_REQUEST["columna"];
     $_SESSION["tablero"]->ponerFicha($_SESSION["tablero"]->getFicha(), $fila, $columna);
-    $_SESSION["tablero"]->cambioTurno();
     $_SESSION["tablero"]->mostrar();
+    $_SESSION["tablero"]->cambioTurno();
+    $_SESSION["tablero"]->verificar($_SESSION["tablero"]->getFicha());
+   
 } else {
+    $nom1 = test_imput($_REQUEST['nom1']);
+    $_SESSION["jug1"] = $nom1;
+    $nom2 = test_imput($_REQUEST['nom2']);
+    $_SESSION["jug2"] = $nom2;
     $ficha = test_imput($_REQUEST['ficha']);
+    $_SESSION["fichon"] = $ficha;
     print ("La ficha es: $ficha <br>");
     $nomFicha = "";
     $nomFicha2 = "";
     $img = "";
     $img2 = "";
-    if ($ficha == "x") {
+    if ( $_SESSION["fichon"] == "x") {
         $img = "img/x.jpg";
         $img2 = "img/0.jpg";
         $nomFicha = "x";
@@ -39,9 +47,6 @@ if ($op == 1) {
     //fichas
     $ficha1 = new Ficha($_SESSION["jug1"], $img);
     $ficha2 = new Ficha($_SESSION["jug2"], $img2);
-    $etiqueta = $ficha1->etiquetaImg();
-    echo "$etiqueta";
-    var_dump($ficha1);
     echo"<br />";
     //jugadores
     $jugador1 = new Jugador($nomFicha, $ficha1);
@@ -50,6 +55,6 @@ if ($op == 1) {
     $tablero = new Tablero($ficha1, $ficha2); //creas tablero
     $_SESSION["tablero"] = $tablero; //se guarda en sesion
     $_SESSION["tablero"]->iniciar(); //se inicia a 0
-    $tablero->mostrar();
+    $_SESSION["tablero"]->mostrar();
 }
 ?>
