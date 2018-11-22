@@ -117,18 +117,20 @@ class Tablero extends Ficha {
         }
     }
 
-    public function verificar(Ficha $ficha) {
+    public function verificar(Ficha $ficha, Jugador $jug1, Jugador $jug2) {
+        $ficha1=$jug1->getFicha();
+        $ficha2=$jug2->getFicha();
         $etiqueta = $ficha->etiquetaImg();
-        echo $etiqueta;
 //comprueba si ha ganado alguien -> devolverá true o false
         //comprueba fila 1
-        echo $this->array[0][0];
-        echo $this->array[0][1];
-        echo $this->array[0][2];
         if ($this->array[0][0] == $etiqueta) {
             if ($this->array[0][1] == $etiqueta) {
                 if ($this->array[0][2] == $etiqueta) {
-                    echo "Ganador";
+                    if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
                 }
             }
         }
@@ -136,7 +138,11 @@ class Tablero extends Ficha {
         if ($this->array[1][0] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[1][2] == $etiqueta) {
-                    echo "Ganador";
+                     if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
                 }
             }
         }
@@ -144,10 +150,76 @@ class Tablero extends Ficha {
         if ($this->array[2][0] == $etiqueta) {
             if ($this->array[2][1] == $etiqueta) {
                 if ($this->array[2][2] == $etiqueta) {
-                    echo "Ganador";
+                     if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
                 }
             }
         }
+        
+        //COMPRUEBA columna 1
+        if ($this->array[0][0] == $etiqueta) {
+            if ($this->array[1][0] == $etiqueta) {
+                if ($this->array[2][0] == $etiqueta) {
+                     if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
+                }
+            }
+        }
+        //COMPRUEBA columna 2
+        if ($this->array[0][1] == $etiqueta) {
+            if ($this->array[1][1] == $etiqueta) {
+                if ($this->array[2][1] == $etiqueta) {
+                     if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
+                }
+            }
+        }
+        //COMPRUEBA columna 3
+        if ($this->array[0][2] == $etiqueta) {
+            if ($this->array[1][2] == $etiqueta) {
+                if ($this->array[2][2] == $etiqueta) {
+                    if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
+                }
+            }
+        }
+        //COMPRUEBA diagonal 1
+        if ($this->array[0][0] == $etiqueta) {
+            if ($this->array[1][1] == $etiqueta) {
+                if ($this->array[2][2] == $etiqueta) {
+                    if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
+                }
+            }
+        }
+        //COMPRUEBA diagonal 2
+        if ($this->array[2][0] == $etiqueta) {
+            if ($this->array[1][1] == $etiqueta) {
+                if ($this->array[0][2] == $etiqueta) {
+                     if($ficha1->etiquetaImg() == $etiqueta){
+                       echo "el ganador es".$ficha1->getNombre();
+                    }else{
+                         echo "el ganador es". $ficha2->getNombre();
+                    }
+                }
+            }
+        }
+
     }
 
 }
