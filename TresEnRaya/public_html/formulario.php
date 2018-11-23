@@ -27,5 +27,4 @@ if (!isset($_POST['aceptar'])) {
  
 }else{
      session_start();
-    
  } ?>

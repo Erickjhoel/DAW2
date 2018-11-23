@@ -13,16 +13,24 @@ function test_imput($data) {
 @$op = $_REQUEST["op"];
 
 if ($op == 1) {
+    
     @$fila = $_REQUEST["fila"];
     @$columna = $_REQUEST["columna"];
     $_SESSION["tablero"]->ponerFicha($_SESSION["tablero"]->getFicha(), $fila, $columna);
     $_SESSION["tablero"]->mostrar();
-    $_SESSION["tablero"]->verificar(
+    $win=$_SESSION["tablero"]->verificar(
             $_SESSION["tablero"]->getFicha(),
             $_SESSION["jugador1"],
             $_SESSION["jugador2"]
             );
+    if($win=="empate"){
+        echo '<a  href="formulario.php">ES UN EMPATE VOLVER A JUGAR </a>';
+    }elseif($win!=null){
+        header('Location: http://localhost/php/servidor/TresEnRaya/public_html/ganador.php?ganador='.$win);
+    }
     $_SESSION["tablero"]->cambioTurno();
+    $fich= $_SESSION["tablero"]->getFicha();
+    echo "Turno de: ".$fich->getNombre();
     
    
 } else {
@@ -32,7 +40,6 @@ if ($op == 1) {
     $_SESSION["Numjug2"] = $nom2;
     $ficha = test_imput($_REQUEST['ficha']);
     $_SESSION["fichon"] = $ficha;
-    print ("La ficha es: $ficha <br>");
     $nomFicha = "";
     $nomFicha2 = "";
     $img = "";
@@ -50,12 +57,12 @@ if ($op == 1) {
     }
 
     //fichas
-    $ficha1 = new Ficha($_SESSION["Numjug1"], $img);
-    $ficha2 = new Ficha($_SESSION["Numjug2"], $img2);
+    $ficha1 = new Ficha($nomFicha, $img);
+    $ficha2 = new Ficha($nomFicha2, $img2);
     echo"<br />";
     //jugadores
-    $jugador1 = new Jugador($nomFicha, $ficha1);
-    $jugador2 = new Jugador($nomFicha2, $ficha2);
+    $jugador1 = new Jugador($_SESSION["Numjug1"], $ficha1);
+    $jugador2 = new Jugador($_SESSION["Numjug2"], $ficha2);
     $_SESSION["jugador1"]=$jugador1;
     $_SESSION["jugador2"]=$jugador2;
     //tablero

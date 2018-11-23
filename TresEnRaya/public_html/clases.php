@@ -1,3 +1,4 @@
+<link href="cssTresEnRaya.css" rel="stylesheet" type="text/css"/>
 <?php
 
 class Ficha {
@@ -93,7 +94,7 @@ class Tablero extends Ficha {
     public function mostrar() {// hay que recorrer el array bidimensional, con foreach si el valor == null
         //colocar el link si no la ficha
         //muestra el tablero con las fichas puestas hasta ahora o vacío si no hay ninguna
-        echo '<table border="2">';
+        echo '<table class="tabla">';
         for ($i = 0; $i < 3; $i++) {
             echo '<tr>';
             for ($e = 0; $e < 3; $e++) {
@@ -105,7 +106,7 @@ class Tablero extends Ficha {
             }
             echo '</tr>';
         }
-        echo '</table>';
+        
     }
 
     public function ponerFicha(Ficha $ficha, $fila, $columna) {
@@ -118,18 +119,19 @@ class Tablero extends Ficha {
     }
 
     public function verificar(Ficha $ficha, Jugador $jug1, Jugador $jug2) {
-        $ficha1=$jug1->getFicha();
-        $ficha2=$jug2->getFicha();
+        $resultado = null;
+        $ficha1 = $jug1->getFicha();
+        $ficha2 = $jug2->getFicha();
         $etiqueta = $ficha->etiquetaImg();
 //comprueba si ha ganado alguien -> devolverá true o false
         //comprueba fila 1
         if ($this->array[0][0] == $etiqueta) {
             if ($this->array[0][1] == $etiqueta) {
                 if ($this->array[0][2] == $etiqueta) {
-                    if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -138,10 +140,10 @@ class Tablero extends Ficha {
         if ($this->array[1][0] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[1][2] == $etiqueta) {
-                     if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -150,23 +152,23 @@ class Tablero extends Ficha {
         if ($this->array[2][0] == $etiqueta) {
             if ($this->array[2][1] == $etiqueta) {
                 if ($this->array[2][2] == $etiqueta) {
-                     if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
         }
-        
+
         //COMPRUEBA columna 1
         if ($this->array[0][0] == $etiqueta) {
             if ($this->array[1][0] == $etiqueta) {
                 if ($this->array[2][0] == $etiqueta) {
-                     if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -175,10 +177,10 @@ class Tablero extends Ficha {
         if ($this->array[0][1] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[2][1] == $etiqueta) {
-                     if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -187,10 +189,10 @@ class Tablero extends Ficha {
         if ($this->array[0][2] == $etiqueta) {
             if ($this->array[1][2] == $etiqueta) {
                 if ($this->array[2][2] == $etiqueta) {
-                    if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -199,10 +201,10 @@ class Tablero extends Ficha {
         if ($this->array[0][0] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[2][2] == $etiqueta) {
-                    if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
@@ -211,15 +213,28 @@ class Tablero extends Ficha {
         if ($this->array[2][0] == $etiqueta) {
             if ($this->array[1][1] == $etiqueta) {
                 if ($this->array[0][2] == $etiqueta) {
-                     if($ficha1->etiquetaImg() == $etiqueta){
-                       echo "el ganador es".$ficha1->getNombre();
-                    }else{
-                         echo "el ganador es". $ficha2->getNombre();
+                    if ($ficha1->etiquetaImg() == $etiqueta) {
+                        $resultado = $jug1->getNombre();
+                    } else {
+                        $resultado = $jug2->getNombre();
                     }
                 }
             }
         }
-
+        
+        //comprueba si hay empate
+        $contador=0;
+        for ($i = 0; $i < 3; $i++) {
+            for ($e = 0; $e < 3; $e++) {
+                if ($this->array[$i][$e] != "0") {
+                    $contador++;
+                } 
+            }
+        }
+        if($contador==9&&$resultado!=$jug1->getNombre()&&$resultado!=$jug2->getNombre()){
+            $resultado="empate";
+        }
+        return $resultado;
     }
 
 }
