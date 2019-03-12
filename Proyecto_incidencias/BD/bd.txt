@@ -1,0 +1,9 @@
+$sql="CREATE TABLE incidencias (in_id VARCHAR(10)  NOT NULL, " . 
+            "in_nompro VARCHAR(20)  NOT NULL, " . //nombre de profe           
+            "in_fech DATE   NOT NULL, " . 
+            "in_nomin VARCHAR(20)   NOT NULL, " . //nombre incidencia
+            "in_aula VARCHAR(20)   NOT NULL, " . 
+            "in_equi VARCHAR(20)  NOT NULL, " .
+            "in_desc VARCHAR(20)  NOT NULL, " .
+            "in_impor VARCHAR(20)  default 'Aun Sin Definir', " .
+            "PRIMARY KEY (in_id)) ENGINE=InnoDB;"; 

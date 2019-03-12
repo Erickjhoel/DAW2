@@ -1,0 +1,15 @@
+*Paguina principal
+    -mostrara una tabla con las incidencias actuales
+
+    -debera mostrar la fecha, el profesor que la crea,el aula, el equipo,
+     el estado de la incidencia,una descripcion del problema,nombre de la incidencia,
+     importancia de la incidencia(baja,media,alta) y que se permita seleccionarla 
+
+    -Un formulario debajo de la tabla que sirva no solo para crear una nueva incidencia
+     si no que tambien se rellene automaticamente al seleccionar una incidencia en la tabla
+     para poder eleguir si eliminarla o modificarla 
+
+    -debera tener tres botones:
+            -el de resolver incidencia.
+            -el de modificar estado de incidencia a "resolviendo"
+            -el boton para crear una nueva incidencia
