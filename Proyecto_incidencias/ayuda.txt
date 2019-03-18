@@ -13,3 +13,11 @@
             -el de resolver incidencia.
             -el de modificar estado de incidencia a "resolviendo"
             -el boton para crear una nueva incidencia
+
+
+
+**********************************************************
+realizacion de la paguina web
+Para ralizar mi paguina web primeramente he fraccionado el proyecto en subcarpetas
+para que se encuentre mas organizado.
+A lo largo del proyecto se utilizara el lenguaje PHP, JavaCript, Ajax , jQuery y Json 

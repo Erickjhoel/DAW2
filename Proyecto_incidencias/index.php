@@ -28,10 +28,12 @@
         <form name="myForm1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return CompruebaCuent()"  method="POST">
             Nombre de Incidentes(Tú): <input type="text" name="nom_in" required="required">
             Titulo de Incidencia: <input type="text" name="tit_in" required="required">
-            <br />
+            <br /><hr />
             Aula de la Incidencia: <input type="text" name="au_inf" required="required">	
-            Equipo: <input type="text" name="ncuenta" required="eq_in">	
-            <br />
+            Equipo: <input type="text" name="eq_in" required="required">	
+            <br /><hr />
+            Correo Electronico: <input type="text" name="ce_in" required="required">
+            <br /><hr />	
             Descripcion de la Incidencia:<br />
             <textarea rows="4" cols="100" name="des_in" required="required" ></textarea>
             <br />

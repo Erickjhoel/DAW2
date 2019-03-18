@@ -15,10 +15,25 @@ function datosTabla_in() {
         url: '/resolverIn/resolverIncidencia.php',
         type: 'POST',
         beforeSend: function () {
-            $("#resultado").html('<h3>Cargando, porfavor espere...');
+            $("#resultado").html('<h3>Cargando Incidencias, porfavor espere...');
         },
         success: function (respuesta) {
-            arrayInfo = respuesta.entry;
+            if (Array.isArray(respuesta)) {
+                arrayInfo = respuesta.entry;
+            } else {
+
+                var mi_Tabla = document.createElement("table");
+                mi_Tabla.setAttribute("border", "1");
+                var in_nompro = document.createTextNode("fecha de cuenta");
+                var in_nomin = document.createTextNode("Hora de cuetna");
+                var in_aula = document.createTextNode("Descripcion movimiento");
+                var in_equi = document.createTextNode("Saldo");
+                var in_desc = document.createTextNode("Hora de cuetna");
+                var in_correo = document.createTextNode("Descripcion movimiento");
+                var in_impor = document.createTextNode("Saldo");
+                //ArrayCon el numero de cada fallo que puede ocurrir
+            }
+
             $("#resultado").html(arrayInfo);
         },
         error: function (xhr, status) {
