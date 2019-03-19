@@ -21,3 +21,8 @@ realizacion de la paguina web
 Para ralizar mi paguina web primeramente he fraccionado el proyecto en subcarpetas
 para que se encuentre mas organizado.
 A lo largo del proyecto se utilizara el lenguaje PHP, JavaCript, Ajax , jQuery y Json 
+
+//****************************************
+php_mail
+// Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
+$mensaje = wordwrap($mensaje, 70, "\r\n");
