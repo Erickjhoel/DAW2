@@ -19,8 +19,11 @@
         <script src="fun_script.js" type="text/javascript"></script>
     </head>
     <body>
+            <h1> TABLA DE INCIDENCIAS</h1>
         <?php
-        echo "<h1>AQUI VA LA TABLA DE INCIDENCIAS</h1>";
+        //$Permiso_Resolver=PermisoResolver();
+         
+        $Permiso_Resolver= true;
         ?>
         <div id="resul_tabla">
 
@@ -37,7 +40,12 @@
             Descripcion de la Incidencia:<br />
             <textarea rows="4" cols="100" name="des_in" required="required" ></textarea>
             <br />
-            <button id="Res_in" type="submit">Resolver</button>
+            <?php if ($Permiso_Resolver) {
+                ?>
+                <button id="Res_in" type="submit">Resolver</button>
+                <?php
+            }else{}
+            ?>
             <button id="Cre_in" type="submit">Crear</button>
             <button id="Mod_in" type="submit">Modificar</button>
         </form>

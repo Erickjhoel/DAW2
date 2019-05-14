@@ -4,7 +4,9 @@
     -debera mostrar la fecha, el profesor que la crea,el aula, el equipo,
      el estado de la incidencia,una descripcion del problema,nombre de la incidencia,
      importancia de la incidencia(baja,media,alta) y que se permita seleccionarla 
-
+        --Validaciones que realizar para mostrar la tabla--
+            *Validar la fecha*
+            *Validar el usuario que va a visualizar la tabla*
     -Un formulario debajo de la tabla que sirva no solo para crear una nueva incidencia
      si no que tambien se rellene automaticamente al seleccionar una incidencia en la tabla
      para poder eleguir si eliminarla o modificarla 
@@ -14,7 +16,8 @@
             -el de modificar estado de incidencia a "resolviendo"
             -el boton para crear una nueva incidencia
 
-
+    **TIENE QUE HABER UNA FUNCION QUE SE EJECUTE AUTOMATICAMENTE YA QUE LAS INCIDENCIAS TEDRA UN TIEMPO DETERMINADO
+      ES DECIR SI PASA DETERMINADO TIEMPO SE ELIMINARA AUTOMATICAMENTE**
 
 **********************************************************
 realizacion de la paguina web

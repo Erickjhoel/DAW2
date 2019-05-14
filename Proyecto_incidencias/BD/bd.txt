@@ -1,10 +1,67 @@
-$sql="CREATE TABLE incidencias (in_id VARCHAR(10)  NOT NULL, " . 
-            "in_nompro VARCHAR(20)  NOT NULL, " . //nombre de profe           
-            "in_fech DATE   NOT NULL, " . 
-            "in_nomin VARCHAR(20)   NOT NULL, " . //nombre incidencia
-            "in_aula VARCHAR(20)   NOT NULL, " . 
+$sql="CREATE TABLE incidencias (in_id VARCHAR(10)  NOT NULL, " . *********** idea
+            "in_nompro VARCHAR(20)  NOT NULL, " . //nombre de profe     añadir aparte de codprof      
+            "in_fech DATE   NOT NULL, " . *********
+            "in_nomin VARCHAR(20)   NOT NULL, " . //nombre incidencia***Titulo
+            "in_aula VARCHAR(20)   NOT NULL, " . **modificar aula 
             "in_equi VARCHAR(20)  NOT NULL, " .
-            "in_desc VARCHAR(20)  NOT NULL, " .
+            "in_desc VARCHAR(20)  NOT NULL, " .*************
             "in_correo VARCHAR(20)  NOT NULL, " .
-            "in_impor VARCHAR(20)  default 'Aun Sin Definir', " .
+            "in_estado VARCHAR(20)  default 'Aun Sin Definir', " .***
             "PRIMARY KEY (in_id)) ENGINE=InnoDB;"; 
+
+********************************************************SANTIAGO
+$sql = "CREATE TABLE IF NOT EXISTS `anomalias_tic` (
+                             `at_id` mediumint(8) NOT NULL AUTO_INCREMENT,
+                             `at_codpro` varchar(9) NOT NULL,
+                             `at_titulo` varchar(50) NOT NULL,
+                             `at_descri` varchar(255) NOT NULL,
+                             `at_lugar` varchar(100) NOT NULL,
+                             `at_respue` varchar(255) NOT NULL,
+                             `at_estado` char(1) NOT NULL,
+                             `at_fechoy` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                              PRIMARY KEY (`at_id`),
+                              KEY `at_codpro` (`at_codpro`)
+                              ) ENGINE=InnoDB " .
+                              "DEFAULT CHARSET = utf8;";
+
+********************************************************************************TABLA FINAL USADA :v
+CREATE TABLE IF NOT EXISTS `anomalias_tic` (
+                             `at_id` mediumint(8) NOT NULL AUTO_INCREMENT,
+                             `at_codpro` varchar(9) NOT NULL,
+                             `at_nompro` varchar(50) NOT NULL,
+                             `at_titulo` varchar(50) NOT NULL,
+                             `at_descri` varchar(255) NOT NULL,
+                             `at_aula` varchar(50) NOT NULL,
+                             `at_equi` varchar(255) NOT NULL,
+                             `at_estado` char(1) NOT NULL,
+                             `at_correo` varchar(50) NOT NULL,
+                             `at_fechoy` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                              PRIMARY KEY (`at_id`),
+                              KEY `at_codpro` (`at_codpro`)
+                              ) ENGINE=InnoDB " .
+                              "DEFAULT CHARSET = utf8;
+
+
+
+
+
+
+CREATE TABLE profesores (pr_codigo VARCHAR(9)  NOT NULL, 
+                                 pr_nombre VARCHAR(30) NOT NULL, 
+                                 pr_apell1 VARCHAR(30), 
+                                 pr_apell2 VARCHAR(30), 
+                                 pr_direcc VARCHAR(200), 
+                                 pr_poblac VARCHAR(50), 
+                                 pr_provin VARCHAR(30), 
+                                 pr_codpos VARCHAR(5),  
+                                 pr_telef1 VARCHAR(12), 
+                                 pr_telef2 VARCHAR(12), 
+                                 pr_email  VARCHAR(200), 
+                                 pr_coddep VARCHAR(5), 
+                                 pr_cuenta VARCHAR(30), 
+                                 PRIMARY KEY (pr_codigo), 
+                                 FOREIGN KEY (pr_coddep) REFERENCES departamentos(de_codigo), 
+                                 FOREIGN KEY (pr_cuenta) REFERENCES usuarios(us_cuenta)
+                                 ) ENGINE = InnoDB 
+                                 DEFAULT CHARSET = utf8;
+
