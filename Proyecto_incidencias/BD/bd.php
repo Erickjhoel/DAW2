@@ -25,7 +25,7 @@ function Obtener_Datos_Tabla($conn) {
     }
     $arrayP = array();
     $contador = 0;
-    $sqli = "SELECT * FROM anomalias_tic ORDER BY at_fechoy desc ";
+    $sqli = "SELECT at_nompro,at_titulo,at_aula,at_equi,at_descri,at_correo,at_estado FROM anomalias_tic ORDER BY at_fechoy desc ";
     $result = $conn->query($sqli);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

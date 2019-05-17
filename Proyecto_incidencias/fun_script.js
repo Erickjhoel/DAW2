@@ -25,7 +25,7 @@ function datosTabla_in() {
             var in_equi = document.createTextNode("Equipo afectado");
             var in_desc = document.createTextNode("Descripcion Incidencias");
             var in_correo = document.createTextNode("Correo");
-            var in_impor = document.createTextNode("Importancia");
+            var in_impor = document.createTextNode("Estado");
             var tr_titulo = document.createElement("tr");
             mi_Tabla.appendChild(tr_titulo);
             var array_titulos = new Array(in_nompro, in_nomin, in_aula, in_equi, in_desc, in_correo, in_impor);
@@ -34,7 +34,6 @@ function datosTabla_in() {
                 mi_td.appendChild(array_titulos[i]);
                 tr_titulo.appendChild(mi_td);
             }
-           alert( typeof respuesta);
             if (Array.isArray(respuesta)) {
                 for (var i = 0; i < respuesta.length; i++) {
                     var mi_tr = document.createElement("tr");
