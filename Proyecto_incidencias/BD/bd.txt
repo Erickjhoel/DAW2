@@ -59,9 +59,7 @@ CREATE TABLE profesores (pr_codigo VARCHAR(9)  NOT NULL,
                                  pr_email  VARCHAR(200), 
                                  pr_coddep VARCHAR(5), 
                                  pr_cuenta VARCHAR(30), 
-                                 PRIMARY KEY (pr_codigo), 
-                                 FOREIGN KEY (pr_coddep) REFERENCES departamentos(de_codigo), 
-                                 FOREIGN KEY (pr_cuenta) REFERENCES usuarios(us_cuenta)
+                                 PRIMARY KEY (pr_codigo)
                                  ) ENGINE = InnoDB 
                                  DEFAULT CHARSET = utf8;
 

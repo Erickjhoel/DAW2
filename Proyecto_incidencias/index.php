@@ -19,16 +19,17 @@
         <script src="fun_script.js" type="text/javascript"></script>
     </head>
     <body>
-            <h1> TABLA DE INCIDENCIAS</h1>
+        <h1> TABLA DE INCIDENCIAS</h1>
         <?php
         //$Permiso_Resolver=PermisoResolver();
-         
-        $Permiso_Resolver= true;
+
+        $Permiso_Resolver = true;
         ?>
         <div id="resul_tabla">
 
         </div>
-        <form name="myForm1" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return CompruebaCuent()"  method="POST">
+        <form name="myForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  method="POST">
+            ID (AUTOMÁTICO): <input type="text" name="id_in">
             Nombre de Incidentes(Tú): <input type="text" name="nom_in" required="required">
             Titulo de Incidencia: <input type="text" name="tit_in" required="required">
             <br /><hr />
@@ -36,7 +37,9 @@
             Equipo: <input type="text" name="eq_in" required="required">	
             <br /><hr />
             Correo Electronico: <input type="text" name="ce_in" required="required">
-            <br /><hr />	
+            <br /><hr />
+            Estado Incidencia (AUTOMÁTICO): <input type="text" name="est_in" required="required">
+            <br /><hr />
             Descripcion de la Incidencia:<br />
             <textarea rows="4" cols="100" name="des_in" required="required" ></textarea>
             <br />
@@ -44,12 +47,16 @@
                 ?>
                 <button id="Res_in" type="submit">Resolver</button>
                 <?php
-            }else{}
+            } else {
+                
+            }
             ?>
             <button id="Cre_in" type="submit">Crear</button>
             <button id="Mod_in" type="submit">Modificar</button>
         </form>
+        <div id="indicaciones">
 
+        </div>
     </body>
 </html>
 

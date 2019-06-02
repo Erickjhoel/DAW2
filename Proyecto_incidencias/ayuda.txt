@@ -29,3 +29,18 @@ A lo largo del proyecto se utilizara el lenguaje PHP, JavaCript, Ajax , jQuery y
 php_mail
 // Si cualquier línea es más larga de 70 caracteres, se debería usar wordwrap()
 $mensaje = wordwrap($mensaje, 70, "\r\n");
+
+
+Falta al crear la incidencia buscar el codigo de ese profesor segun su nombre y su correo 
+falta que los campos id  y estado esten solo visibles
+lo de los emails
+SELECCIONAR una fila y que se autorrellene
+y saber quien entra para resolver o no
+Que el tamaño de la tabla no se modifique
+paguinar la tabla 
+***`para petarlo
+Boton para refrescar la paguina :v
+Buscar una incidencia :v
+/*************************
+Estados: 1= pendiente_resolver
+         2=resuelta.
