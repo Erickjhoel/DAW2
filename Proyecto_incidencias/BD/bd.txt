@@ -63,3 +63,4 @@ CREATE TABLE profesores (pr_codigo VARCHAR(9)  NOT NULL,
                                  ) ENGINE = InnoDB 
                                  DEFAULT CHARSET = utf8;
 
+gertgrt
